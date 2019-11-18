@@ -37,3 +37,24 @@ Public Function GetLastRowColumn(ws As Worksheet, RowColumn As String) As Long
     'Return
     GetLastRowColumn = LastRowColumn
 End Function
+
+''
+' @Purpose:  Get Corresponding workbook
+' @Param  :  {String}    Name of workbook
+' @Return :　{Workbook}  Corresponding workbook if it find the workbook otherwise Nothing
+''
+Public Function GetWorkbook(ByVal WorkBookName As String) As Workbook
+    Dim EachWorkbook As Object
+    
+    If Not Trim(WorkBookName) = vbNullString Then
+        For Each EachWorkbook In Excel.Workbooks
+            If EachWorkbook.Name = WorkBookName Then
+                  Set GetWorkbook = EachWorkbook
+                  Exit Function
+            End If
+        Next EachWorkbook
+    End If
+    
+    Set GetWorkbook = Nothing
+    
+End Function 
