@@ -71,3 +71,18 @@ Public Function GetWorkbook(ByVal WorkBookName As String) As Workbook
     
 End Function 
 ```
+
+* Function to find dynamic array is empty or not
+([source from cpearson](http://www.cpearson.com/excel/IsArrayAllocated.aspx))
+```vb
+''
+' @Purpose:  Find out dynamci array allocated or not
+' @Param  :  {Varaint}  Arr
+' @Return :　{Boolean}  Return True if Arr is a valid and allocted array
+''
+Function IsArrayAllocated(Arr As Variant) As Boolean
+        On Error Resume Next
+        IsArrayAllocated = IsArray(Arr) And _
+                           Not IsError(LBound(Arr, 1)) And _
+                           LBound(Arr, 1) <= UBound(Arr, 1)
+``` 
