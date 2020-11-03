@@ -1,7 +1,62 @@
-# CommonVBA.Utility
+<div align="center">
+<h1> VBA for Everyone </h1>
+
+<sub>Author: Santosh Rai
+<small> January, 2018</small>
+</sub>
+
+</div>
+
+- [Introduction](#introduction)
+- [Requirements](#requirements)
+- [Setup](#setup)
+- [Variables](#variables)
+- [Comments](#comments)
+- [Coding Style](#codingstyle)
+- [Data types](#data-types)
+- [Checking Data Type and casting](#data-types-casting)
+- [Conditionals](#conditionals)
+  - [if](#if)
+  - [if else](#if-else)
+  - [if else if else](#if-else-if-else)
+  - [switch](#switch)
+  - [Ternary Operators](#ternary-operators)
+  - [While loop](#while-loop)
+  - [Do while loop](#do-while-loop)
+- [Arrays](#arrays)
+- [Functions](#functions)
+- [Classes](#classes)
+  - [Defining a classes](#defining-a-classes)
+  - [Class Instantiation](#class-instantiation)
+  - [Class Constructor](#class-constructor)
+  - [Default values with constructor](#default-values-with-constructor)
+  - [Class methods](#class-methods)
+  - [Properties with initial value](#properties-with-initial-value)
+  - [getter](#getter)
+  - [setter](#setter)
+  - [Static method](#static-method)
+  - [CommonVBA.Utility](#CommonVBA.Utility)
+
+
+## Introduction
+<!-- TODO: add -->
+## Requirments
+<!-- TODO: add -->
+## Setup
+<!-- TODO: add -->
+## CodingStyle
+<!-- TODO: add -->
+```vb
+''
+' @Purpose:  Get Corresponding sheet
+' @Param  :  {Workbook} Book
+'            {String}   sheetname　
+' @Return :　Worksheet
+''
+```
+
+## CommonVBA.Utility
 This is utility module with lots of reuseable functions for VBA
-
-
 * Function to get worksheet object
 
 ```vb
