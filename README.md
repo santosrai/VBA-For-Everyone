@@ -166,3 +166,29 @@ Dim FileExistResult As Boolean
 End Function
 ```
 
+* Function to check whether input is valid or not
+
+```vb
+''
+' @Purpose:  Check whether TextBox is valid or not
+' @Param  :  {String} ctrlName *Optional
+' @Return :　Nothing
+''
+Public Sub ValidateForm(Optional ctrlName As String)
+Dim ctrl As Object
+Dim ControlName As String
+
+    For Each ctrl In Me.Controls
+        If TypeName(ctrl) = "TextBox" Then
+            ControlName = IIf(ctrlName <> "", ctrlName, ctrl.ControlName)
+            If IsNull(ctrl.Value) Then
+                ctrl.SetFocus
+                MsgBox ControlName & "に入力してから実行してください。"
+                End
+            End If
+        End If
+    Next ctrl
+End Sub
+
+```
+
