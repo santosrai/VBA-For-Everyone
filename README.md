@@ -35,7 +35,7 @@
   - [getter](#getter)
   - [setter](#setter)
   - [Static method](#static-method)
-  - [CommonVBA.Utility](#CommonVBA.Utility)
+  - [CommonVBA.Utility](#CommonVBA-Utility)
 
 
 ## Introduction
@@ -55,7 +55,7 @@
 ''
 ```
 
-## CommonVBA.Utility
+## CommonVBA-Utility
 This is utility module with lots of reuseable functions for VBA
 * Function to get worksheet object
 
@@ -141,4 +141,28 @@ Function IsArrayAllocated(Arr As Variant) As Boolean
                            Not IsError(LBound(Arr, 1)) And _
                            LBound(Arr, 1) <= UBound(Arr, 1)
 End Function                           
-``` 
+```
+
+* Function to check whether given file exist or not
+```vb
+''
+' @Purpose:  Check whether given file exist or not
+' @Param  :  {String} FilePath
+' @Return :　{Boolean} True if successful
+''
+Public Function FileExist(FilePath As String) As Boolean
+Dim GetFile As String
+Dim FileExistResult As Boolean
+    
+     GetFile = Dir(FilePath)
+    
+     If GetFile <> "" Then
+            FileExistResult = True
+     End If
+    
+    'return
+    FileExist = FileExistResult
+    
+End Function
+```
+
