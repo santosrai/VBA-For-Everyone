@@ -192,3 +192,41 @@ End Sub
 
 ```
 
+* Function to find whether Userform is existed or not
+
+```vb
+''
+' @Purpose:  Find whether Userform is existed or not
+' @Param  :  {String} userform name
+' @Return :　 {Boolean} True if userform is exist
+' References: 'http://custom-designed-databases.com/wordpress/2011/ms-access-vba-does-form-exist-function/
+''
+
+Function isFormLoaded(formName As String) As Boolean
+
+Dim retVal As Boolean
+
+On Error GoTo ErrHandler
+
+retVal = CurrentProject.AllForms.Item(formName).IsLoaded
+retVal = (CurrentProject.AllForms.Item(formName).CurrentView = acCurViewDatasheet Or CurrentProject.AllForms.Item(formName).CurrentView = acCurViewFormBrowse)
+
+isFormLoaded = retVal
+
+GoTo ExitRoutine
+
+ErrHandler:
+
+If Err.Number = 2467 Then
+  retVal = False
+'  Debug.Print “Form is not loaded or does not exist”
+End If
+
+ExitRoutine:
+
+isFormLoaded = retVal
+
+End Function
+
+
+```
