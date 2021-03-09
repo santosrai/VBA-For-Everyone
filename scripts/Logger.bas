@@ -12,7 +12,11 @@ End Function
 ' */
 Public function getLog_FolderPath()
       Dim folderPath as String
-      folderPath ="C:\Users\" & VBA.Environ$("username") & "\AppData\Roaming\XXXX_log"
+      Dim folderName as String
+      
+      'change folder name only
+      folderName = "XXXXX_log"
+      folderPath ="C:\Users\" & VBA.Environ$("username") & "\AppData\Roaming\" & folderName & "\"
       'create folder
       Create_Folder folderPath
 
