@@ -47,12 +47,12 @@
 ## CodingStyle
 <!-- TODO: add -->
 ```vb
-''
-' @Purpose:  Get Corresponding sheet
-' @Param  :  {Workbook} Book
+'/**
+' * @Purpose:  Get Corresponding sheet
+' * @Param  :  {Workbook} Book
 '            {String}   sheetname　
-' @Return :　Worksheet
-''
+' * @Return :　Worksheet
+' */
 ```
 
 ## CommonVBA-Utility
@@ -60,12 +60,12 @@ This is utility module with lots of reuseable functions for VBA
 * Function to get worksheet object
 
 ```vb
-''
-' @Purpose:  Get Corresponding sheet
-' @Param  :  {Workbook} Book
+'/**
+' * @Purpose:  Get Corresponding sheet
+' * @Param  :  {Workbook} Book
 '            {String}   sheetname　
-' @Return :　Worksheet
-''
+' * @Return :　Worksheet
+' */
 Public Function GetSheet(ByVal Book As Workbook, ByVal SheetName As String) As Worksheet
     Dim sheet As Object
     For Each sheet In Book.Worksheets
@@ -80,12 +80,12 @@ End Function
 ```
 * Function to get last row or column count number
 ```vb
-''
-' @Purpose:  Return the Last Row Or Column Number
-' @Param  :  {Workbook} Workbook
+'/**
+' * @Purpose:  Return the Last Row Or Column Number
+' * @Param  :  {Workbook} Workbook
 '            {String}   RowColumn
-' @Return :　{Long} RowColumn
-''
+' * @Return :　{Long} RowColumn
+' */
 Public Function GetLastRowColumn(ws As Worksheet, RowColumn As String) As Long
     Dim LastRowColumn As Long
     Select Case LCase(Left(RowColumn, 1)) 'If they put in 'row' or column instead of 'r' or 'c'.
@@ -105,11 +105,11 @@ End Function
 
 * Function to get workbook
 ```vb
-''
-' @Purpose:  Get Corresponding workbook
-' @Param  :  {String}    Name of workbook
-' @Return :　{Workbook}  Corresponding workbook if it find the workbook otherwise Nothing
-''
+'/**
+' * @Purpose:  Get Corresponding workbook
+' * @Param  :  {String}    Name of workbook
+' * @Return :　{Workbook}  Corresponding workbook if it find the workbook otherwise Nothing
+' */
 Public Function GetWorkbook(ByVal WorkBookName As String) As Workbook
     Dim EachWorkbook As Object
     
@@ -130,11 +130,11 @@ End Function
 * Function to find dynamic array is empty or not
 ([source from cpearson](http://www.cpearson.com/excel/IsArrayAllocated.aspx))
 ```vb
-''
-' @Purpose:  Find out dynamci array allocated or not
-' @Param  :  {Varaint}  Arr
-' @Return :　{Boolean}  Return True if Arr is a valid and allocted array
-''
+'/**
+' * @Purpose:  Find out dynamci array allocated or not
+' * @Param  :  {Varaint}  Arr
+' * @Return :　{Boolean}  Return True if Arr is a valid and allocted array
+' */
 Function IsArrayAllocated(Arr As Variant) As Boolean
         On Error Resume Next
         IsArrayAllocated = IsArray(Arr) And _
@@ -145,11 +145,11 @@ End Function
 
 * Function to check whether given file exist or not
 ```vb
-''
-' @Purpose:  Check whether given file exist or not
-' @Param  :  {String} FilePath
-' @Return :　{Boolean} True if successful
-''
+'/**
+' * @Purpose:  Check whether given file exist or not
+' * @Param  :  {String} FilePath
+' * @Return :　{Boolean} True if successful
+' */
 Public Function FileExist(FilePath As String) As Boolean
 Dim GetFile As String
 Dim FileExistResult As Boolean
@@ -169,11 +169,11 @@ End Function
 * Function to check whether input is valid or not
 
 ```vb
-''
-' @Purpose:  Check whether TextBox is valid or not
-' @Param  :  {String} ctrlName *Optional
-' @Return :　Nothing
-''
+'/**
+' * @Purpose:  Check whether TextBox is valid or not
+' * @Param  :  {String} ctrlName *Optional
+' * @Return :　Nothing
+' */
 Public Sub ValidateForm(Optional ctrlName As String)
 Dim ctrl As Object
 Dim ControlName As String
@@ -195,12 +195,12 @@ End Sub
 * Function to find whether Userform is existed or not
 
 ```vb
-''
-' @Purpose:  Find whether Userform is existed or not
-' @Param  :  {String} userform name
-' @Return :　 {Boolean} True if userform is exist
-' References: 'http://custom-designed-databases.com/wordpress/2011/ms-access-vba-does-form-exist-function/
-''
+'/**
+' * @Purpose:  Find whether Userform is existed or not
+' * @Param  :  {String} userform name
+' * @Return :　 {Boolean} True if userform is exist
+' * @References: 'http://custom-designed-databases.com/wordpress/2011/ms-access-vba-does-form-exist-function/
+' */
 
 Function isFormLoaded(formName As String) As Boolean
 
