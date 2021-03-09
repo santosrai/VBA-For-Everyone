@@ -3,16 +3,22 @@
 ' * @Return  : {string} file name
 ' */
 Public Function getLog_FileName()
-      getLog_FileName = Format(Now(), "yyyyMMdd") & "_ExecutionLog.txt"
-End Sub
+      getLog_FileName = Format(Now(), "yyyy-MM-dd") & "_ExecutionLog.txt"
+End Function
 
 '/**
 ' * @Purposes: Provide log folder path
 ' * @Return  : {string} folder path
 ' */
 Public function getLog_FolderPath()
-   getLog_FolderPath ="C:\Users\" & VBA.Environ$("username") & "\AppData\Roaming\XXXX\log"
-End Sub
+      Dim folderPath as String
+      folderPath ="C:\Users\" & VBA.Environ$("username") & "\AppData\Roaming\XXXX_log"
+      'create folder
+      Create_Folder folderPath
+
+      ' Return
+      getLog_FolderPath = folderPath
+End Function
 
 '/**
 ' * @Purpose: Export all logs
@@ -84,3 +90,24 @@ Public Sub LogFile_Open()
     End If
     
 End Sub
+                                    
+                                    
+'/**
+' * @Purposes: Create folder on given path
+' * @Param:    {String}  Folder path
+' * @Return:    {Boolean} True if it successfully create folder
+' */
+Public Function Create_Folder(folderPath As String) As Boolean
+    Dim FSO As Object
+    Set FSO = CreateObject("Scripting.FileSystemObject")
+                        
+    'if folder path already exist
+    If FSO.FolderExists(folderPath) Then Exit Function
+    
+    'Create folder
+    FSO.CreateFolder folderPath
+    ' Return
+    Create_Folder = True
+
+       
+End Function
