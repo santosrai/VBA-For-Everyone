@@ -51,7 +51,7 @@
 ' * @Purpose:  Get Corresponding sheet
 ' * @Param  :  {Workbook} Book
 '            {String}   sheetname　
-' * @Return :　Worksheet
+' * @Return :　{Worksheet} sheet
 ' */
 ```
 
