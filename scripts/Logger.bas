@@ -1,30 +1,6 @@
 '/**
-' * @Purposes: Provide log file Name
-' * @Return  : {string} file name
-' */
-Public Function getLog_FileName()
-      getLog_FileName = Format(Now(), "yyyy-MM-dd") & "_ExecutionLog.txt"
-End Function
-
-'/**
-' * @Purposes: Provide log folder path
-' * @Return  : {string} folder path
-' */
-Public function getLog_FolderPath()
-      Dim folderPath as String
-      Dim folderName as String
-      
-      'change folder name only
-      folderName = "XXXXX_log"
-      folderPath ="C:\Users\" & VBA.Environ$("username") & "\AppData\Roaming\" & folderName & "\"
-      'create folder
-      Create_Folder folderPath
-
-      ' Return
-      getLog_FolderPath = folderPath
-End Function
-
-'/**
+' * VBA-Logger v1.0.0
+' * (c) Santosh Rai
 ' * @Purpose: Export all logs
 ' * @Pre-condition: 
 '            Public logPath as String --> Name log folder
@@ -33,9 +9,13 @@ End Function
 '            {String} sTitleName   
 '            {String} sMessage
 ' * @Ref:    Microsoft Scripting Runtime
+' * @Use:    1.Download logger.bas or copy this whole code
+'            2.change folder name with replacing XXXXX (line no.18)
+'            3.insert or call LogFile_Write function inside your code where you want to log
+' * @Note:  sStatus can be {Info,Trace,Warn,Error,Debug}
 ' */
 Public Sub LogFile_Write(ByVal sStatus As String, ByVal sTitleName As String, _
-                             ByVal sMessage As String)
+                         ByVal sMessage As String)
                              
 On Error GoTo ErrorHandler
    Dim sText As String
@@ -70,11 +50,10 @@ On Error GoTo ErrorHandler
    g_scrText.Close
 
    Set g_scrText = Nothing
-   Exit Function
+   Exit sub
 ErrorHandler:
    Set g_scrText = Nothing
    Debug.Print "unable to write in log file"
-   'Call MsgBox("Unable to write to log file", vbCritical, "LogFile_Write")
 End Sub
 
 '/**
@@ -94,7 +73,32 @@ Public Sub LogFile_Open()
     End If
     
 End Sub
-                                    
+
+'/**
+' * @Purposes: Provide log file Name
+' * @Return  : {string} file name
+' */
+Public Function getLog_FileName()
+      getLog_FileName = Format(Now(), "yyyy-MM-dd") & "_ExecutionLog.txt"
+End Function
+
+'/**
+' * @Purposes: Provide log folder path
+' * @Return  : {string} folder path
+' */
+Public function getLog_FolderPath()
+      Dim folderPath as String
+      Dim folderName as String
+      
+      'change folder name only
+      folderName = "XXXXX_log"
+      folderPath ="C:\Users\" & VBA.Environ$("username") & "\AppData\Roaming\" & folderName & "\"
+      'create folder
+      Create_Folder folderPath
+
+      ' Return
+      getLog_FolderPath = folderPath
+End Function
                                     
 '/**
 ' * @Purposes: Create folder on given path
@@ -112,6 +116,5 @@ Public Function Create_Folder(folderPath As String) As Boolean
     FSO.CreateFolder folderPath
     ' Return
     Create_Folder = True
-
-       
+ 
 End Function
