@@ -3,7 +3,7 @@ Option Explicit
 
   
 '/**
-' * VBA-Logger v1.1.0
+' * VBA-Logger v1.0.0
 ' * (c) Santosh Rai
 ' * @Purpose: Export all logs
 ' * @Pre-condition:
@@ -61,7 +61,7 @@ End Property
 ' * @Param: {String} [sTitleName = ""]
 ' * @Param: {String} Message
 ' */
-Public Sub log(Level As Long, sTitleName As String, sMessage)
+Public Sub log(Level As Long, sMessage As String, sTitleName As String)
 Dim log_LevelValue As String
     If LogThreshold = 0 Or Level < LogThreshold Then
         pLogged = Array(Level, sMessage, sTitleName)
@@ -104,7 +104,7 @@ Public Function getLog_FolderPath()
       Dim folderName As String
       
       'change folder name only
-      folderName = "XXXXXX_log"
+      folderName = "XXXXX_log"
       FolderPath = "C:\Users\" & VBA.Environ$("username") & "\AppData\Roaming\" & folderName & "\"
 
       ' Return
