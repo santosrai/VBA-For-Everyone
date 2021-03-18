@@ -92,7 +92,7 @@ End Sub
 ' * @Return  : {string} file name
 ' */
 Public Function getLog_FileName()
-      getLog_FileName = Format(Now(), "yyyy-MM-dd") & "_件数予測ExecutionLog.txt"
+      getLog_FileName = Format(Now(), "yyyy-MM-dd") & "_ExecutionLog.txt"
 End Function
 
 '/**
