@@ -104,7 +104,7 @@ Public Function getLog_FolderPath()
       Dim folderName As String
       
       'change folder name only
-      folderName = "件数予測_log"
+      folderName = "XXXXXX_log"
       FolderPath = "C:\Users\" & VBA.Environ$("username") & "\AppData\Roaming\" & folderName & "\"
 
       ' Return
